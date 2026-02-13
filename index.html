@@ -34,28 +34,18 @@
                 type: 'image',
                 url:  'mosaico.png'
             },
-            // AJUSTES PARA MÓVIL
             defaultZoomLevel: 0,
-            minZoomLevel: 0,
+            minZoomLevel: 0.5,
             maxZoomLevel: 10,
-            
-            // Esto es clave: obliga a la imagen a centrarse y encajar siempre
-            visibilityRatio: 1,
+            visibilityRatio: 1.0,
             constrainDuringPan: true,
-            homeFillsViewer: false, // Cambia esto a false para que no se fuerce a estirarse
-            autoResize: true,       // Para que si gira el móvil, se ajuste solo
-            
             showNavigationControl: false,
             gestureSettingsMouse: { scrollToZoom: true, clickToZoom: true, dblClickToZoom: true, dragToPan: true },
             gestureSettingsTouch: { pinchToZoom: true, dragToPan: true }
         });
-
-        // Este pequeño truco fuerza a la imagen a centrarse 1 segundo después de cargar
-        viewer.addHandler('open', function() {
-            viewer.viewport.goHome(true);
-        });
     </script>
 </body>
 </html>
+
 
 
