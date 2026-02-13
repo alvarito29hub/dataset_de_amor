@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuestro pequeño dataset!!!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script>
+    <style>
+        body { margin: 0; background-color: #111; color: white; font-family: sans-serif; }
+        #viewer { width: 100vw; height: 100vh; }
+        .info { position: absolute; bottom: 20px; left: 20px; z-index: 100; pointer-events: none; text-shadow: 2px 2px 4px black; }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h1>Para mi diseñadora favorita ❤️</h1>
+        <p>Haz scroll para explorar nuestros datos...</p>
+    </div>
+    <div id="viewer"></div>
+
+    <script>
+        var viewer = OpenSeadragon({
+            id: "viewer",
+            prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/images/",
+            tileSources: {
+                type: 'image',
+                url:  'mosaico.png'
+            },
+            showNavigationControl: false,
+            defaultZoomLevel: 1,
+            gestureSettingsMouse: { clickToZoom: true, scrollToZoom: true }
+        });
+    </script>
+</body>
+</html>
