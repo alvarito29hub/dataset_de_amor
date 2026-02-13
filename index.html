@@ -4,19 +4,28 @@
     <title>Nuestro pequeño dataset!!!</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/4.0.0/openseadragon.min.js"></script>
     <style>
-        body { margin: 0; background-color: #111; color: white; font-family: 'Courier New', Courier, monospace; overflow: hidden; }
-        #viewer { width: 100vw; height: 100vh; background: #000; }
-        .info { 
-            position: absolute; top: 20px; left: 20px; z-index: 100; 
-            pointer-events: none; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            background: rgba(0,0,0,0.4); padding: 15px; border-radius: 8px;
-            border-left: 5px solid #ff4d4d;
+        body { margin: 0; background-color: #000; overflow: hidden; }
+        #viewer { width: 100vw; height: 100vh; }
+        
+        /* Etiqueta pequeñita y minimalista tipo moda */
+        .tag { 
+            position: absolute; 
+            bottom: 15px; 
+            right: 15px; 
+            z-index: 100;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            pointer-events: none;
         }
-        h1 { margin: 0; font-size: 1.5rem; color: #ff4d4d; }
-        p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.8; }
     </style>
 </head>
 <body>
+    <div class="tag">Feliz San Valentín <3</div>
+    <div id="viewer"></div>
+
     <script>
         var viewer = OpenSeadragon({
             id: "viewer",
@@ -25,28 +34,15 @@
                 type: 'image',
                 url:  'mosaico.png'
             },
-            // CONFIGURACIÓN DE ZOOM "INFINITO"
-            defaultZoomLevel: 0,     // Para que al cargar se vea la imagen completa (el beso)
-            minZoomLevel: 0.5,       // No dejar que se aleje demasiado
-            maxZoomLevel: 10,        // Permite acercarse MUCHÍSIMO (ajusta a 20 si quieres más)
-            visibilityRatio: 1.0,    // La imagen no se "escapa" de los bordes
+            defaultZoomLevel: 0,
+            minZoomLevel: 0.5,
+            maxZoomLevel: 10,
+            visibilityRatio: 1.0,
             constrainDuringPan: true,
-            showNavigationControl: false, // Limpio, sin botones feos
-            
-            // Sensibilidad del ratón/dedo
-            gestureSettingsMouse: {
-                scrollToZoom: true,
-                clickToZoom: true,
-                dblClickToZoom: true,
-                dragToPan: true
-            },
-            gestureSettingsTouch: {
-                pinchToZoom: true,
-                dragToPan: true
-            }
+            showNavigationControl: false,
+            gestureSettingsMouse: { scrollToZoom: true, clickToZoom: true, dblClickToZoom: true, dragToPan: true },
+            gestureSettingsTouch: { pinchToZoom: true, dragToPan: true }
         });
     </script>
 </body>
 </html>
-
-
